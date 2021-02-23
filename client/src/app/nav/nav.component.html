@@ -1,24 +1,28 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
   <div class="container">
-    <a class="navbar-brand" href="#">DietCalc</a>
+    <a class="navbar-brand" routerLink="/">DietCalc</a>
 
-      <ul class="navbar-nav mr-auto" *ngIf="accountService.currentUser$ | async" >
+      <ul class="navbar-nav mr-auto">
+        <ng-container *ngIf="accountService.currentUser$ | async">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/product" routerLinkActive='active'>Product</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/meal" routerLinkActive='active'>Meal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/daymeal" routerLinkActive='active'>Day Meals</a>
+            </li>
+        </ng-container>
         <li class="nav-item">
-          <a class="nav-link" href="#">Product</a>
+          <a class="nav-link" routerLink="/errors" routerLinkActive='active'>Errors</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Meal</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Meals</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="logout()" href="#">Logout</a>
-        </li>
+
+
+
       </ul>
-
-      <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
-          <a class="dropdown-toggle text-light" dropdownToggle>Welcome user</a>
+      <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
+          <a class="dropdown-toggle text-light" dropdownToggle>Welcome {{user.username | titlecase}}</a>
           <div class="dropdown-menu mt-3" *dropdownMenu>
             <a class="dropdown-item">Edit Profile</a>
             <div class="drpodown-divider"></div>
@@ -40,7 +44,7 @@
             class="form-control mr-sm-2"
             type="password"
             placeholder="Password">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+        <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
       </form>
     </div>
 </nav>

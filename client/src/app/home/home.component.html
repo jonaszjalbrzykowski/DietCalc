@@ -1,5 +1,5 @@
-<div class="containter mt-5">
-  <div *ngIf="!registerMode" class="containter mt-5">
+<div class="container mt-5">
+  <div *ngIf="!registerMode" class="container mt-5 justify-content-center">
     <div style="text-align: center;">
       <h1>Calculate your Diet</h1>
     <p class="lead">Only you need to do is sign up</p>
@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<div *ngIf="registerMode" class="containter">
+<div *ngIf="registerMode" class="container">
   <div class="row justify-content-center">
     <div class="col-4">
         <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
