@@ -1,0 +1,24 @@
+<form #registerForm="ngForm" (ngSubmit)="addProduct()" autocomplete="off">
+  <h2 class="text-center text-primary">Add product</h2>
+  <h5 class="text-center text-secondary">All values per 100g</h5>
+  <hr>
+  <div class="form-group">
+    <input type="text" class="form-control" name="name" [(ngModel)]="model.name" placeholder="Name">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" name="calories" [(ngModel)]="model.calories" placeholder="Calories">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" name="fats" [(ngModel)]="model.fats" placeholder="Fats">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" name="sugars" [(ngModel)]="model.sugars" placeholder="Sugars">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" name="proteins" [(ngModel)]="model.proteins" placeholder="Proteins">
+  </div>
+  <div class="form-group text-center">
+    <button class="btn btn-success mr-2" (click)="addProduct()" type="submit">Add</button>
+    <button class="btn btn-default mr-2" type="button">Cancel</button>
+  </div>
+</form>

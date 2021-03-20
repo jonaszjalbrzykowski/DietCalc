@@ -4,7 +4,7 @@ import { TestErrorsComponent } from './errors/test-errors/test-errors.component'
 import { AuthGuard } from './_guards/auth.guard';
 import { DaymealComponent } from './daymeal/daymeal.component';
 import { MealComponent } from './meal/meal.component';
-import { ProductComponent } from './product/product.component';
+import { ProductAddComponent } from './product-add/product-add.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -16,7 +16,7 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard],
     children: [
-      {path: 'product', component: ProductComponent, canActivate: [AuthGuard] },
+      {path: 'product', component: ProductAddComponent, canActivate: [AuthGuard] },
       {path: 'meal', component: MealComponent },
       {path: 'daymeal', component: DaymealComponent },
 

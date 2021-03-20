@@ -39,6 +39,7 @@ namespace API
         {
             services.AddApplicationServices(_config);            
             services.AddControllers();
+            services.AddTransient<IProductRepository, ProductRepository>();
             services.AddCors();
             services.AddIdentityServices(_config);
         }
@@ -47,9 +48,7 @@ namespace API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseMiddleware<ExceptionMiddleware>();
-
             app.UseHttpsRedirection();
-
             app.UseRouting();
 
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));

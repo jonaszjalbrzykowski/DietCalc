@@ -5,7 +5,7 @@
       <ul class="navbar-nav mr-auto">
         <ng-container *ngIf="accountService.currentUser$ | async">
             <li class="nav-item">
-              <a class="nav-link" routerLink="/product" routerLinkActive='active'>Product</a>
+              <a class="nav-link" routerLink="/product" routerLinkActive='active'>Add Product</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="/meal" routerLinkActive='active'>Meal</a>
@@ -14,12 +14,9 @@
               <a class="nav-link" routerLink="/daymeal" routerLinkActive='active'>Day Meals</a>
             </li>
         </ng-container>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" routerLink="/errors" routerLinkActive='active'>Errors</a>
-        </li>
-
-
-
+        </li> -->
       </ul>
       <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
           <a class="dropdown-toggle text-light" dropdownToggle>Welcome {{user.username | titlecase}}</a>
