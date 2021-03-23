@@ -19,7 +19,9 @@ export class ProductAddComponent implements OnInit {
   }
 
   addProduct() {
-     this.addProductService.addProduct(this.model)
+     this.addProductService.addProduct(this.model).subscribe(response => {
+      this.router.navigateByUrl('/meal')
+  })
   }
 
 }

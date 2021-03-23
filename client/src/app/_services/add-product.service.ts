@@ -13,6 +13,7 @@ export class AddProductService {
   constructor(private http: HttpClient) { }
 
   addProduct(model: any) {
-    return this.http.post(this.baseUrl + 'product/add', model)
+    var address = this.baseUrl + 'product/add';
+    return this.http.post(address, model);
   }
 }
