@@ -21,34 +21,12 @@ namespace API.Data
         {
             var product = new Product()
             {
-                Calories = dto.Calories,
-                Fats = dto.Fats,
-                Sugars = dto.Sugars,
-                Proteins = dto.Proteins,
-                Name = dto.Name
+                ProductModel = dto.ProductModel,
+                Weight = dto.Weight
             };
             context.Products.Add(product);
             await context.SaveChangesAsync();
             return product;
-        }
-        public async Task<IEnumerable<Product>> GetAllProductsAsync()
-        {
-            return await context.Products.ToListAsync();
-        }
-
-        public async Task<Product> GetProductByIdAsync(int id)
-        {
-            return await context.Products.FindAsync(id);
-        }
-
-        public async Task<Product> GetProductByNameAsync(string name)
-        {
-            return await context.Products.SingleOrDefaultAsync(x => x.Name == name);
-        }
-
-        public async Task<bool> ProductExists(string name)
-        {
-            return await context.Products.AnyAsync(x => x.Name == name.ToLower());
-        }
+        } 
     }
 }

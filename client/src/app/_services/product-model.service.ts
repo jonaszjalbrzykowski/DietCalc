@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs';
-import { User } from './../_models/user';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AddProductService {
+export class AddProductModelService {
   baseUrl = 'https://localhost:5001/api/';
 
   constructor(private http: HttpClient) { }
 
-  addProduct(model: any) {
-    var address = this.baseUrl + 'product/add';
+  addProductModel(model: any) {
+    var address = this.baseUrl + 'productModel/add';
     return this.http.post(address, model);
   }
 }

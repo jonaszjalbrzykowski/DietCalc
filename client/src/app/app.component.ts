@@ -1,3 +1,4 @@
+import { DaymealService } from './_services/daymeal.service';
 import { AccountService } from './_services/account.service';
 import { User } from './_models/user';
 
@@ -13,7 +14,7 @@ export class AppComponent {
   title = 'The DietCalc';
   users: any;
 
-  constructor(private accountService: AccountService) {}
+  constructor(private accountService: AccountService, private daymealService : DaymealService) {}
 
   ngOnInit() {
 

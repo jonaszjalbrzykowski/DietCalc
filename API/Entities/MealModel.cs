@@ -5,12 +5,11 @@ using System.Threading.Tasks;
 
 namespace API.Entities
 {
-    public class DayMeal
-    {
+    public class MealModel
+    {        
         public int Id { get; set; }
+        public string Name { get; set; }
+        public IList<Product> ProductLines { get; set; }
         public DateTime Date { get; set; }
-        public IList<Meal> Meals { get; set; }
-
-        public DayMeal() { }
     }
 }

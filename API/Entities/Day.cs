@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace API.Entities
 {
-    public class Product
+    public class Day
     {
         public int Id { get; set; }
-        public ProductModel ProductModel { get; set; }
-        public decimal Weight { get; set; }
+        public DateTime Date { get; set; }
+        public IList<Meal> Meals { get; set; }        
     }
 }

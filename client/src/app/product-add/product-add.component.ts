@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AddProductService } from '../_services/product.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { AddProductService } from '../_services/add-product.service';
+import { Product } from '../_models/product';
+
 
 @Component({
   selector: 'app-product-add',
@@ -9,19 +10,22 @@ import { AddProductService } from '../_services/add-product.service';
   styleUrls: ['./product-add.component.css']
 })
 export class ProductAddComponent implements OnInit {
+  products: Product[];
+  searchText : string = "win";
 
-  model: any = {};
 
-  constructor(public addProductService: AddProductService, private router: Router,
-    private toastr: ToastrService) { }
+  constructor(public addProductService: AddProductService, public router: Router) {
+      this.getProducts();
+
+   }
 
   ngOnInit(): void {
   }
 
-  addProduct() {
-     this.addProductService.addProduct(this.model).subscribe(response => {
-      this.router.navigateByUrl('/meal')
-  })
+  getProducts() {
+    this.addProductService.getProducts().subscribe(products => {
+      this.products = products;
+    });
   }
 
 }

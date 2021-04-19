@@ -7,8 +7,7 @@ namespace API.Entities
 {
     public class Meal
     {
-        public int Id { get; set; }
-        IList<ProductLine> ProductLines { get; set; }
-        DateTime Date { get; set; }
+        public MealModel MealModel { get; set; }
+        public decimal Weight { get; set; }
     }
 }

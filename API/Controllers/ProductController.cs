@@ -19,28 +19,11 @@ namespace API.Controllers
             repo = _repo;
         }
 
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<Product>>> GetAllProducts()
-        {
-            var products = await repo.GetAllProductsAsync();
-            return Ok(products);
-        }
-
         [HttpPost("add")]
         public async Task<ActionResult<Product>> AddProduct(ProductDto dto)
         {
-            if (await ProductExists(dto.Name))
-            {
-                return BadRequest("Product already exists.");
-            }
             return await repo.AddProduct(dto);
         }
-
-        private async Task<bool> ProductExists(string name)
-        {
-            return await repo.ProductExists(name);
-        }
-            
+ 
     }
 }

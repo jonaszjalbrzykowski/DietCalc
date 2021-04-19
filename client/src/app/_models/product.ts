@@ -1,8 +1,6 @@
-export interface Product {
-    id: number,
-    name: string,
-    calories: number,
-    fats: number,
-    sugars: number,
-    proteins: number
+import { ProductModel } from './productModel';
+
+export class Product {
+  weight: number;
+  productModel: ProductModel
 }

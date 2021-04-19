@@ -1,1 +1,13 @@
-<p>daymeal works!</p>
+<div class="form-group text-center">
+  <button class="btn btn-success mr-2" (click) = saveMeal() type="submit">Save Day</button>
+  <br />
+  <br />
+
+  <tr *ngFor="let meal of daymealService.meals; let i = index">
+    <td><app-meal></app-meal></td>
+  </tr>
+
+
+  <button class="btn btn-secondary mr-2" (click) = generateMeal() type="submit">Add meal</button>
+
+</div>

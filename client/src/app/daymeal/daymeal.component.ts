@@ -1,4 +1,8 @@
+import { DaymealService } from '../_services/daymeal.service';
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
+import { Meal } from '../_models/meal';
 
 @Component({
   selector: 'app-daymeal',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DaymealComponent implements OnInit {
 
-  constructor() { }
+  model: any = {};
+  meals : Array<Meal>;
+
+  constructor(public daymealService: DaymealService, private router: Router) {
+      this.meals = daymealService.meals
+  }
+
 
   ngOnInit(): void {
   }
 
+  saveMeal() {
+  }
+
+  generateMeal() {
+    this.daymealService.generateMeal();
+  }
 }

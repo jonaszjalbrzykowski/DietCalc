@@ -40,6 +40,7 @@ namespace API
             services.AddApplicationServices(_config);            
             services.AddControllers();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IProductModelRepository, ProductModelRepository>();
             services.AddCors();
             services.AddIdentityServices(_config);
         }
