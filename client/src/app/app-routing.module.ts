@@ -1,3 +1,4 @@
+import { CrProductFromModelComponent } from './cr-product-from-model/cr-product-from-model.component';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
       {path: 'meal', component: MealComponent },
       {path: 'daymeal', component: DaymealComponent },
       {path: 'product-add', component: ProductAddComponent },
+      {path: 'create-product', component: CrProductFromModelComponent },
 
 
     ]

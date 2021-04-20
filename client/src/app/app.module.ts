@@ -20,7 +20,7 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { ProductModelAddComponent } from './product-model-add/product-model-add.component';
 import { ProductAddComponent } from './product-add/product-add.component';
-import { FilterPipe } from './pipes/filter.pipe'
+import { CrProductFromModelComponent } from './cr-product-from-model/cr-product-from-model.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { FilterPipe } from './pipes/filter.pipe'
     ProductModelAddComponent,
     ProductAddComponent,
     ProductAddComponent,
-    FilterPipe
+    CrProductFromModelComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,8 @@
-import { AddProductService } from '../_services/product.service';
+import { ProductModel } from './../_models/productModel';
+import { Product } from './../_models/product';
+import { ProductService } from '../_services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from '../_models/product';
 
 
 @Component({
@@ -10,22 +11,42 @@ import { Product } from '../_models/product';
   styleUrls: ['./product-add.component.css']
 })
 export class ProductAddComponent implements OnInit {
-  products: Product[];
-  searchText : string = "win";
+
+  pageTitle: string = 'Product List';
+  errorMessage: string;
+  filteredProducts: ProductModel[];
+  products: ProductModel[];
+  _listFilter: string;
+
+  get listFilter(): string
+    { return this._listFilter; }
+    set listFilter(value: string)
+    { this._listFilter = value;
+    this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products; }
 
 
-  constructor(public addProductService: AddProductService, public router: Router) {
+  constructor(public productService: ProductService, public router: Router) {
       this.getProducts();
-
    }
+
+   performFilter(filterBy: string): ProductModel[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.products.filter((product: ProductModel) =>
+    product.name.toLocaleLowerCase().indexOf(filterBy) !== -1); }
 
   ngOnInit(): void {
   }
 
-  getProducts() {
-    this.addProductService.getProducts().subscribe(products => {
-      this.products = products;
-    });
+  CreateProductFromModel(productModel: ProductModel) {
+      this.router.navigateByUrl("/create-product")
   }
 
-}
+
+  getProducts() {
+    this.productService.getProducts().subscribe(products => {
+      this.products = products;
+    })
+  }
+  }
+
+
