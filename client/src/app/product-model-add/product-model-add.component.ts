@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AddProductModelService } from '../_services/product-model.service';
+import { ProductService } from '../_services/product.service';
 
 @Component({
   selector: 'app-product-model-add',
@@ -12,14 +12,14 @@ export class ProductModelAddComponent implements OnInit {
 
   model: any = {};
 
-  constructor(public addProductModelService: AddProductModelService, private router: Router,
+  constructor(public productService: ProductService, private router: Router,
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
 
   addProductModel() {
-     this.addProductModelService.addProductModel(this.model).subscribe(response => {
+     this.productService.addProductModel(this.model).subscribe(response => {
      this.router.navigateByUrl('/meal')
   })
   }

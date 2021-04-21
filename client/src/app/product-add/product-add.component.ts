@@ -38,6 +38,7 @@ export class ProductAddComponent implements OnInit {
   }
 
   CreateProductFromModel(productModel: ProductModel) {
+      this.productService.setProductModel(productModel);
       this.router.navigateByUrl("/create-product")
   }
 
